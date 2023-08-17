@@ -28,24 +28,29 @@ describe('My First Test', () => {
     },
 
     startDestinationCity: {
-      city: "Liverpool"
+      city: "Leeds"
     },
 
-    correctPostCode: {
+    correctPostCodeCity: {
       postcode: "81677",
       city: "Munich"
     },
 
-    thirdTestCity: {
+    correctCoordinationsCity: {
       city: "Warsaw",
-      country: "Poland",
       coordinations: "51.20748037341781, 16.157240196628603"
     },
 
-    incorrectCity: {
-      city: "ajjahdshdghdhh"
+    incorrectCoordinations: {
+      coordinations: "551.20748037341781, 16.157240196628603"
     },
 
+    incorrectCityName: {
+      city: "ajjahdshdghdhh"
+    },
+  }
+
+  const errorMessages = {
     searchResaultErrorMessage: "Google Maps can't find",
   }
 
@@ -53,7 +58,7 @@ describe('My First Test', () => {
   it('User search for Paris city', () => {
 
     SearchDirection.giveValueForSearch(testData.firstTestCity.city);
-    // should verify city name
+    SearchDirection.verifyDestinationDetails(testData.firstTestCity.city);
     SearchDirection.verifyIfDirectionBottomButtonsAreVisible();
 
   })
@@ -70,31 +75,34 @@ describe('My First Test', () => {
 
   });
 
-  it('User search for city by coordinations', () => {
+  it.only('User search for city by coordinations', () => {
 
-    SearchDirection.giveValueForSearch(testData.thirdTestCity.coordinations);
-    // should verify city name
+    SearchDirection.giveValueForSearch(testData.correctCoordinationsCity.coordinations);
+    SearchDirection.verifyDestinationDetails(testData.correctCoordinationsCity.city);
     SearchDirection.verifyIfDirectionBottomButtonsAreVisible();
-
 
   })
 
   it('User search for city by postcode', () => {
 
-    SearchDirection.giveValueForSearch(testData.correctPostCode.postcode);
-    // should verify city name
+    SearchDirection.giveValueForSearch(testData.correctPostCodeCity.postcode);
+    SearchDirection.verifyDestinationDetails(testData.correctPostCodeCity.city);
     SearchDirection.verifyIfDirectionBottomButtonsAreVisible();
-
 
   })
 
 
-  it('incorrect destination', () => {
+  it('incorrect city name', () => {
 
-    SearchDirection.giveValueForSearch(testData.incorrectCity.city)
-    SearchDirection.verifySearchErrorMessage(testData.searchResaultErrorMessage)
+    SearchDirection.giveValueForSearch(testData.incorrectCityName.city)
+    SearchDirection.verifySearchErrorMessage(errorMessages.searchResaultErrorMessage)
 
+  });
 
+  it.skip('incorrect coordinations (out of scope)', () => {
+
+    SearchDirection.giveValueForSearch(testData.incorrectCoordinations.coordinations)
+    SearchDirection.verifySearchErrorMessage(errorMessages.searchResaultErrorMessage)
 
   });
 

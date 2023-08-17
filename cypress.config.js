@@ -6,6 +6,6 @@ module.exports = defineConfig({
       // implement node event listeners here
     },
     baseUrl: "https://www.google.pl/",
-    timeout: 90000, 
+    defaultCommandTimeout: 90000,
   },
 });

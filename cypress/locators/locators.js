@@ -12,8 +12,7 @@ export const searchLocators = {
     searchFlightDirectionButtonLocator: 'div[data-travel_mode="4"]',
     searchResultVehicleTripIconLocator: '#section-directions-trip-travel-mode-0',
     searchErrorMessageLocator: '.Q2vNVc',
-
-    searchResultDirectionLocator: 'h1', 
+    searchResultDirectionLocator: '.DUwDvf.lfPIob', 
     searchRoutePlanLocator: 'button[data-value="Directions"]',
     searchRouteSaveLocator: 'button[data-value="Save"]',
     searchRouteNearbyLocator: 'button[data-value="Nearby"]',

@@ -19,8 +19,8 @@ class SearchPage {
         cy.get(searchLocators.searchRouteShareLocator).should('be.visible')
     }
 
-    verifyDestinationDetails() {
-
+    verifyDestinationDetails(searchDestination) {
+        cy.get('.DUwDvf.lfPIob').should('have.text', searchDestination)
     }
 
     verifyFirstSuggestedRoute() {
