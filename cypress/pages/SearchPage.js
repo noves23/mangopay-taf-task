@@ -39,7 +39,7 @@ class SearchPage {
     }
 
     verifyIfDirectionButtonIsVisible() {
-        cy.get(searchLocators.searchDirectionButtonLocator, {timeout: 15000}).should('be.visible')
+        cy.get(searchLocators.searchDirectionButtonLocator).should('be.visible')
     }
 
     forceDirectionSearch() {
@@ -47,7 +47,7 @@ class SearchPage {
     }
 
     verifySearchErrorMessage(message) {
-        cy.get(searchLocators.searchErrorMessageLocator, {timeout: 15000})
+        cy.get(searchLocators.searchErrorMessageLocator)
         .should('be.visible')
         .should('contain', message)
     }
