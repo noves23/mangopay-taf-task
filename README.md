@@ -1,31 +1,34 @@
-# Mangopay - Test Automation Framework for basic search functionality of Google Maps.  
-Summary
-This repository contains Test Automation Framework for Google maps webpage. It was created as a part of MANGOPAY recruitment process. It is based on Cypress test framemork and javascript language. During creating process only standard documentation for Cypress has been used. 
-Solution has been done using Page Object Pattern, although some recomendations prefering Cypress Commands. Both solutions are similar and I chose first one, as I used it in other test frameworks, like Selenium. For better understanding of my approach I encourage reviewers to read comments in the code. 
+# Mangopay - Test Automation Framework for Basic Search Functionality of Google Maps
 
-Stracture of the framework:
--> SearchPage.js - contains collection of reusable functions. 
--> locators.js - separate file to collect all locators for dedicated page. 
--> testData folder - contains test data inputs and test oracle. Although it's small portion of data, it is a good practice to saparate it from the test case file. 
--> searchOnMap.cy.js - contains implementation of designed test cases, based on Acceptance Criteria. 
+## Summary
 
-As mentioned in test task, it should be runable on a local machine of the user (not part of CI/CD), so variaty of configurations for different browsers and devices are very limited. It could be extended on demand in 'cypress.config.js'. 
-Also screenshots and videos are taken only "on failure", when prefered form of running test is used - 'npx cypress run'.
+This repository contains a Test Automation Framework for testing the basic search functionality of the Google Maps webpage. The framework was created as a part of the MANGOPAY recruitment process. It is based on the Cypress test framework and JavaScript language. Throughout the creation process, standard documentation for Cypress was used.
 
-Solution includes two required test scenarios and covers couple more:
+The solution utilizes the Page Object Pattern, although some recommendations prefer using Cypress Commands. Both solutions are similar, and I chose the Page Object Pattern as it aligns with my experience in other test frameworks like Selenium. To better understand my approach, I encourage reviewers to read the comments in the code.
 
-Verify if search button returns proper destination, when user gives valid city name - Paris.
-Verify if direction button returns proper route details for given points (from Leeds to London).
-Verify if search button returns proper destination, when user gives valid postcode.
-Verify if search button returns proper error message, when user gives invalid city name.
-Verify if search button returns proper error message, when user gives invalid coordinations.
+## Structure of the Framework
 
-In addition one extra test case (set to be not included in run) to test basic API functionality. 
-Retrieves location address based on latitude and longitude.
+- `SearchPage.js` - contains a collection of reusable functions.
+- `locators.js` - a separate file to collect all locators for a dedicated page.
+- `testData` folder - contains test data inputs and test oracle. Separating this data from the test case file is considered good practice.
+- `searchOnMap.cy.js` - contains the implementation of designed test cases based on the Acceptance Criteria.
 
-Instructions
-To run tests locally follow the steps below:
+As specified in the test task, the framework is intended to be runnable on a local machine of the user (not as part of CI/CD). Therefore, the variety of configurations for different browsers and devices is very limited. However, this could be extended as needed in the `cypress.config.js`. Screenshots and videos are taken only on failure when using the preferred form of running tests: `npx cypress run`.
 
-Install dependences: 'npm install'
-Run tests from the command line: 'npx cypress run'
-Optionaly to be able to watch on real time what it happens this command can be use: 'npx cypress open'. Then on GUI interface select E2E and select test to run (only one is included).
+The solution includes the two required test scenarios and covers a couple more:
+- Verify if the search button returns the proper destination when the user provides a valid city name (Paris).
+- Verify if the direction button returns the proper route details for given points (from Leeds to London).
+- Verify if the search button returns the proper destination when the user provides a valid postcode.
+- Verify if the search button returns a proper error message when the user provides an invalid city name.
+- Verify if the search button returns a proper error message when the user provides invalid coordinates.
+
+In addition, there is one extra test case (not set to be included in the run) to test basic API functionality. It retrieves the location address based on latitude and longitude.
+
+## Instructions
+
+To run tests locally, follow the steps below:
+
+1. Install dependencies: `npm install`
+2. Run tests from the command line: `npx cypress run`
+3. Optionally, to be able to watch in real-time what is happening, use this command: `npx cypress open`. Then, on the GUI interface, select E2E and choose the test to run (only one is included).
+
