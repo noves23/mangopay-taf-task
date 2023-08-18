@@ -3,7 +3,7 @@ import { SearchDirection } from "../pages/SearchPage";
 import { searchDestinationsData } from "../testData/searchDestinations";
 import { searchErrorMessagesData } from "../testData/searchErrorMessages";
 
-describe('Verify basic search functionality of Google Maps.', () => {
+describe('Verify basic search functionality of Google Maps running on Macbook 16.', () => {
 
   beforeEach(() => {
     cy.viewport('macbook-16');
