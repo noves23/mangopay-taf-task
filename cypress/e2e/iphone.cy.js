@@ -6,6 +6,7 @@ import { searchErrorMessagesData } from "../testData/searchErrorMessages";
 describe('Verify basic search functionality of Google Maps.', () => {
 
   beforeEach(() => {
+    cy.viewport('macbook-16');
     cy.visit('/maps', {
       // this hook is needed to perform test cases from any local machine, to ensure proper assertion strings (set language to English)
       onBeforeLoad(win) {
