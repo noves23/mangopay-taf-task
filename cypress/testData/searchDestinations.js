@@ -17,11 +17,6 @@ export const searchDestinationsData = {
         city: "Munich"
     },
 
-    correctCoordinationsCity: {
-        city: "Warsaw",
-        coordinations: "51.20748037341781, 16.157240196628603"
-    },
-
     incorrectCoordinations: {
         coordinations: "551.20748037341781, 16.157240196628603"
     },

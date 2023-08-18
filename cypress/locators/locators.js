@@ -18,5 +18,4 @@ export const searchLocators = {
     searchRouteNearbyLocator: 'button[data-value="Nearby"]',
     searchRouteSendToPhoneLocator: 'button[data-value="Send to phone"]',
     searchRouteShareLocator: 'button[data-value="Share"]',
-    
 }

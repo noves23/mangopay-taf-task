@@ -2,6 +2,8 @@ import { searchLocators } from "../locators/locators"
 
 class SearchPage {
 
+    // with this single function more checks are combine, as usually we would like to verify if all buttons in dedicated sections are visible
+    // this approach increase readability and maintainability  of test case file (searchOnMao.cy.js)
     verifyIfDirectionTopButtonsVisible() {
         cy.get(searchLocators.searchBestDirectionButtonLocator).should('be.visible')
         cy.get(searchLocators.searchVehicleDirectionButtonLocator).should('be.visible')
@@ -11,6 +13,8 @@ class SearchPage {
         cy.get(searchLocators.searchFlightDirectionButtonLocator).should('be.visible')
     }
 
+    // with this single function more checks are combine, as usually we would like to verify if all buttons in dedicated sections are visible
+    // this approach increase readability and maintainability  of test case file (searchOnMao.cy.js)
     verifyIfDirectionBottomButtonsAreVisible() {
         cy.get(searchLocators.searchRoutePlanLocator).should('be.visible')
         cy.get(searchLocators.searchRouteSaveLocator).should('be.visible')
@@ -23,17 +27,20 @@ class SearchPage {
         cy.get('.DUwDvf.lfPIob').should('have.text', searchDestination)
     }
 
+    verifyIfDestinationDetailsContains(searchDestination) {
+        cy.get('.DUwDvf.lfPIob').should('contain', searchDestination)
+    }
+
     verifyFirstSuggestedRoute() {
         cy.get(searchLocators.searchResultVehicleTripIconLocator)
         .should('be.visible')
     }
 
-    giveStartDestination(startPoint) {
+    giveStartDestinationAndPressEnter(startPoint) {
         cy.get(searchLocators.startDestinationInputLocator).type(startPoint).type('{enter}')
     }
 
-
-    giveValueForSearch(searchDestination) {
+    giveSearchDestinationAndClickButton(searchDestination) {
         cy.get(searchLocators.searchBoxInputLocator).type(searchDestination);
         cy.get(searchLocators.searchBoxSearchButtonLocator).click();
     }
@@ -42,7 +49,7 @@ class SearchPage {
         cy.get(searchLocators.searchDirectionButtonLocator).should('be.visible')
     }
 
-    forceDirectionSearch() {
+    clickDirectionSearchButton() {
         cy.get(searchLocators.searchDirectionButtonLocator).click({force: true})
     }
 
@@ -51,7 +58,6 @@ class SearchPage {
         .should('be.visible')
         .should('contain', message)
     }
-
 }
 
 export const SearchDirection = new SearchPage()
